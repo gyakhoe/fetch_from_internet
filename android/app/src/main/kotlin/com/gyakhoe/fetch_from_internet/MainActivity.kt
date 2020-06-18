@@ -1,0 +1,6 @@
+package com.gyakhoe.fetch_from_internet
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
