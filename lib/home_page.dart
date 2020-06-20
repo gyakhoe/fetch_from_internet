@@ -11,22 +11,21 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Fecth From Internet'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
         children: <Widget>[
-          FlatButton(
-            child: Text('Album Details'),
-            color: Theme.of(context).primaryColor,
-            onPressed: () {
+          ListTile(
+            leading: Icon(Icons.music_note),
+            title: Text('Album Details'),
+            onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return AlbumHomeScreen();
               }));
             },
           ),
-          FlatButton(
-            child: Text('Post Details'),
-            color: Theme.of(context).primaryColor,
-            onPressed: () {
+          ListTile(
+            leading: Icon(Icons.local_post_office),
+            title: Text('Post Details'),
+            onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return PostHomeScreen();
               }));
