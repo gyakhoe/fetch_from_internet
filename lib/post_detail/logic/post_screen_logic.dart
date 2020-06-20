@@ -1,5 +1,4 @@
 import 'package:fetch_from_internet/post_detail/data/models/post.dart';
-import 'package:fetch_from_internet/post_detail/data/models/post_screen_model.dart';
 import 'package:fetch_from_internet/post_detail/data/repositories/post_repository.dart';
 
 class PostScreenLogic {

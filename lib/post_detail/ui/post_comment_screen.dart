@@ -32,32 +32,36 @@ class PostCommentScreen extends StatelessWidget {
               ],
             ),
             Center(
-              child: FutureBuilder(
-                future: futureListOfComment,
-                builder: (context, snapshot) {
-                  if (snapshot.hasError) {
-                    return Text(snapshot.hasError.toString());
-                  } else if (snapshot.hasData) {
-                    List<Comment> listOfComment = snapshot.data;
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: listOfComment.length,
-                        itemBuilder: (context, index) {
-                          Comment comment = listOfComment.elementAt(index);
-                          return ListTile(
-                            title: Text(comment.email),
-                            subtitle: Text(comment.body),
-                          );
-                        });
-                  } else {
-                    return CircularProgressIndicator();
-                  }
-                },
-              ),
+              child: _commentDetail(),
             )
           ],
         ),
       ),
+    );
+  }
+
+  Widget _commentDetail() {
+    return FutureBuilder(
+      future: futureListOfComment,
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return Text(snapshot.hasError.toString());
+        } else if (snapshot.hasData) {
+          List<Comment> listOfComment = snapshot.data;
+          return ListView.builder(
+              shrinkWrap: true,
+              itemCount: listOfComment.length,
+              itemBuilder: (context, index) {
+                Comment comment = listOfComment.elementAt(index);
+                return ListTile(
+                  title: Text(comment.email),
+                  subtitle: Text(comment.body),
+                );
+              });
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
     );
   }
 }
